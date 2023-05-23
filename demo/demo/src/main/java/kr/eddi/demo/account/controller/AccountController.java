@@ -1,6 +1,7 @@
 package kr.eddi.demo.account.controller;
 
 import kr.eddi.demo.account.controller.form.AccountRegistRequestForm;
+import kr.eddi.demo.account.controller.form.AccoutLoginRequestForm;
 import kr.eddi.demo.account.entity.Account;
 import kr.eddi.demo.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,15 @@ public class AccountController {
             return null;
         }
         return account.getId();
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody AccoutLoginRequestForm requestForm){
+        log.info("login");
+        Account account = accountService.login(requestForm);
+        if (account == null) {
+            return null;
+        }
+        return account.getUserToken();
     }
 }
