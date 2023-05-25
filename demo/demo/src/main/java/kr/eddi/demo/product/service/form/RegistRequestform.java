@@ -5,8 +5,14 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
 public class RegistRequestform {
+    public RegistRequestform(String userToken, String productName, Integer productPrice, String vendor) {
+        this.userToken = userToken;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.vendor = vendor;
+    }
+
     final String userToken;
     final String productName;
     final Integer productPrice;
