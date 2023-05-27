@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 
+
 public class AccountRegistRequestForm {
     String email;
     String password;

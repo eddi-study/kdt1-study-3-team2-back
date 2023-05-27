@@ -8,4 +8,6 @@ public interface AccountService {
     Account regist(AccountRegistRequestForm requestForm);
 
     Account login(AccoutLoginRequestForm requestForm);
+
+    Boolean checkEmail(String email);
 }
