@@ -6,10 +6,7 @@ import kr.eddi.demo.account.entity.Account;
 import kr.eddi.demo.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -37,4 +34,13 @@ public class AccountController {
         }
         return account.getUserToken();
     }
+
+    @GetMapping("check-email/{email}")
+    public Boolean checkEmail(@PathVariable("email") String email){
+        log.info("chek email : " + email);
+
+        return accountService.checkEmail(email);
+    }
+
+
 }
