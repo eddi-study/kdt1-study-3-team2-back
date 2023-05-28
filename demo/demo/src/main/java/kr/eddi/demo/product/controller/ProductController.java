@@ -5,10 +5,9 @@ import kr.eddi.demo.product.service.ProductService;
 import kr.eddi.demo.product.service.form.RegistRequestform;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -24,9 +23,13 @@ public class ProductController {
         return productService.request();
     }
 
-    @PostMapping("/regist")
-    public Long regist(RegistRequestform requestForm) {
+    @PostMapping(value = "/register",
+            consumes = { MediaType.MULTIPART_FORM_DATA_VALUE,
+                    MediaType.APPLICATION_JSON_VALUE })
+    public Long regist(@RequestPart(value = "imageFileList") List<MultipartFile> imageFiles,
+                        @RequestPart(value = "productInfo") RegistRequestform requestForm) {
         log.info("product regist()");
-        return productService.regist(requestForm).getId();
+        log.info("requestForm");
+        return productService.regist(imageFiles, requestForm).getId();
     }
 }
