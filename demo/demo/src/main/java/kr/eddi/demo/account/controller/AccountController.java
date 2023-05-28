@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/account")
@@ -35,12 +37,27 @@ public class AccountController {
         return account.getUserToken();
     }
 
-    @GetMapping("check-email/{email}")
+    @GetMapping("/check-email/{email}")
     public Boolean checkEmail(@PathVariable("email") String email){
-        log.info("chek email : " + email);
+        log.info("check email : " + email);
 
         return accountService.checkEmail(email);
     }
+
+    @GetMapping("/list")
+    public List<Account> accountList(){
+        log.info("  ");
+        log.info("AccountList()");
+
+
+        List<Account> returnedAccountList = accountService.list();
+
+        log.info("returnedAccountList : " + returnedAccountList);
+
+
+        return returnedAccountList;
+    }
+
 
 
 }
