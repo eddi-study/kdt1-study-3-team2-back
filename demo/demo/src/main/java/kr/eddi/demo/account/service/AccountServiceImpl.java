@@ -5,8 +5,10 @@ import kr.eddi.demo.account.controller.form.AccoutLoginRequestForm;
 import kr.eddi.demo.account.entity.Account;
 import kr.eddi.demo.account.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -53,5 +55,10 @@ public class AccountServiceImpl implements AccountService{
             return true;
         }
 
+    }
+
+    @Override
+    public List<Account> list() {
+        return accountRepository.findAll(Sort.by(Sort.Direction.DESC, "email"));
     }
 }
