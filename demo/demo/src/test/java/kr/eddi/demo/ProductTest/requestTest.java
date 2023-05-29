@@ -21,7 +21,7 @@ public class requestTest {
     @Test
     @DisplayName("회원이 ProductList를 요청합니다")
     void request_productList() {
-        List<Product> productList= productService.request();
+        List<Product> productList= productService.requestList();
         System.out.println(productList);
     }
 

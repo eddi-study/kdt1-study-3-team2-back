@@ -1,11 +1,13 @@
 package kr.eddi.demo.product.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import kr.eddi.demo.account.entity.Account;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -17,11 +19,22 @@ public class Product {
 
     private String productName;
     private Integer productPrice;
-    private String vendor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Account account;
+    private String productDetails;
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    final private List<ProductImagePath> imagePaths = new ArrayList<>();
 
-    public Product(String productName, Integer productPrice, String vendor) {
+    public Product(String productName, Integer productPrice, Account account, String productDetails) {
         this.productName = productName;
         this.productPrice = productPrice;
-        this.vendor = vendor;
+        this.account = account;
+        this.productDetails = productDetails;
+    }
+
+    public void addImage(ProductImagePath imagePath) {
+        imagePaths.add(imagePath);
     }
 }
