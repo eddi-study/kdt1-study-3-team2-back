@@ -20,8 +20,10 @@ public class Product {
     private String productName;
     private Integer productPrice;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Account account;
     private String productDetails;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     final private List<ProductImagePath> imagePaths = new ArrayList<>();
 

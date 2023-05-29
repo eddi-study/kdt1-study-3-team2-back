@@ -1,19 +1,17 @@
 package kr.eddi.demo.product.service;
 
-import kr.eddi.demo.account.controller.form.AccoutLoginRequestForm;
 import kr.eddi.demo.account.entity.Account;
 import kr.eddi.demo.account.repository.AccountRepository;
 import kr.eddi.demo.product.entity.Product;
 import kr.eddi.demo.product.entity.ProductImagePath;
 import kr.eddi.demo.product.repository.ProductRepository;
+import kr.eddi.demo.product.service.form.ProductResponseForm;
 import kr.eddi.demo.product.service.form.RegistRequestform;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -27,10 +25,11 @@ public class ProductServiceImpl implements ProductService {
     final AccountRepository accountRepository;
 
     @Override
-    public List<Product> request() {
+    public List<Product> requestList() {
         log.info("request()");
         return productRepository.findAll();
     }
+
 
     @Override
     public Product regist(List<MultipartFile> images,
@@ -74,6 +73,18 @@ public class ProductServiceImpl implements ProductService {
 
         }
         return true;
+    }
+
+    @Override
+    public ProductResponseForm requestProduct(Long productId) {
+        log.info(String.valueOf(productId));
+        Optional<Product> maybeProduct = productRepository.findById(productId);
+        if(maybeProduct.isEmpty()) {
+            log.info("product is empty");
+            return null;
+        }
+        log.info(String.valueOf(maybeProduct.get()));
+        return new ProductResponseForm(maybeProduct.get());
     }
 
 
