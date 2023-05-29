@@ -31,9 +31,7 @@ public class AccountController {
     public String login(@RequestBody AccoutLoginRequestForm requestForm){
         log.info("login");
         Account account = accountService.login(requestForm);
-        if (account == null) {
-            return null;
-        }
+
         return account.getUserToken();
     }
 
