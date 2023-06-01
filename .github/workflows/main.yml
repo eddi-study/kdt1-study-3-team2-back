@@ -82,7 +82,7 @@ jobs:
             
             docker login ghrc.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
             
-            docker pull ghcr.io/eddi-robotacademy/wmc-back/wmc-server:latest
+            docker pull ghcr.io/dbswndk/backend-server:latest
 
             docker image prune -f
             docker logout
