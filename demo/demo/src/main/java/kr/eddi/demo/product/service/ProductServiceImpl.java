@@ -9,6 +9,7 @@ import kr.eddi.demo.product.service.form.RegistRequestform;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileOutputStream;
@@ -47,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
+    @Transactional
     public ProductResponseForm requestProduct(Long productId) {
         log.info(String.valueOf(productId));
         Optional<Product> maybeProduct = productRepository.findById(productId);
