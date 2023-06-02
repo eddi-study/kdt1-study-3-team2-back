@@ -56,6 +56,15 @@ public class AccountController {
         return returnedAccountList;
     }
 
+    @DeleteMapping("/delete/{email}")
+    public void accountDelete(@PathVariable("email") String email) {
+        log.info(email);
+        log.info("accountDelete()");
+
+        accountService.delete(email);
+
+    }
+
 
 
 }
