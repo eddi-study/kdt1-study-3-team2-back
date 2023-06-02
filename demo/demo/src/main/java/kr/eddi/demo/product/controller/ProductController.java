@@ -24,14 +24,11 @@ public class ProductController {
         return productService.requestList();
     }
 
-    @PostMapping(value = "/register",
-            consumes = { MediaType.MULTIPART_FORM_DATA_VALUE,
-                    MediaType.APPLICATION_JSON_VALUE })
-    public Long regist(@RequestPart(value = "imageFileList") List<MultipartFile> imageFiles,
-                        @RequestPart(value = "productInfo") RegistRequestform requestForm) {
+    @PostMapping(value = "/register")
+    public Long regist(@RequestBody RegistRequestform requestForm) {
         log.info("product regist()");
         log.info("requestForm");
-        return productService.regist(imageFiles, requestForm).getId();
+        return productService.regist(requestForm).getId();
     }
 
     @GetMapping("/{productId}")
