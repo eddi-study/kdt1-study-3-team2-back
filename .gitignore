@@ -1,3 +1,45 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### 경로가 다른 관계로 ###
+docker-compose.yml
+.github
+
 
 demo/.idea/gradle.xml
 demo/.idea/dataSources/ef478358-55a0-4c05-9e82-4951e89378ad/storage_v2/_src_/schema/sys.zb4BAA.meta
@@ -9,3 +51,4 @@ demo/.idea/dataSources.xml
 demo/.idea/dataSources.local.xml
 demo/.idea/gradle.xml
 demo/.idea/gradle.xml
+
