@@ -61,4 +61,10 @@ public class AccountServiceImpl implements AccountService{
     public List<Account> list() {
         return accountRepository.findAll(Sort.by(Sort.Direction.DESC, "email"));
     }
+
+    @Override
+    public void delete(String email) {
+        accountRepository.deleteByEmail(email);
+    }
+
 }
