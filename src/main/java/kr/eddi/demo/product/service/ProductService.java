@@ -13,4 +13,5 @@ public interface ProductService {
     Product regist(RegistRequestform requsetForm);
 
     ProductResponseForm requestProduct(Long productId);
+
 }
