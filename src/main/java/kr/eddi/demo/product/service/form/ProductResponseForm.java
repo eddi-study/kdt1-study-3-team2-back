@@ -9,11 +9,13 @@ public class ProductResponseForm {
     Integer productPrice;
     String productDetails;
     String account;
+    Long productId;
 
     public ProductResponseForm(Product product) {
         this.productName = product.getProductName();
         this.productPrice = product.getProductPrice();
         this.productDetails = product.getProductDetails();
         this.account = product.getAccount().getEmail();
+        this.productId = product.getId();
     }
 }
