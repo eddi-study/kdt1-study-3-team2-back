@@ -23,9 +23,6 @@ public class Product {
     @JsonIgnore
     private Account account;
     private String productDetails;
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    final private List<ProductImagePath> imagePaths = new ArrayList<>();
 
     public Product(String productName, Integer productPrice, Account account, String productDetails) {
         this.productName = productName;
@@ -34,7 +31,5 @@ public class Product {
         this.productDetails = productDetails;
     }
 
-    public void addImage(ProductImagePath imagePath) {
-        imagePaths.add(imagePath);
-    }
+
 }

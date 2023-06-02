@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 경로가 다른 관계로 ###
+docker-compose.yml
+.github

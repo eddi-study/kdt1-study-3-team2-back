@@ -10,10 +10,7 @@ import java.util.List;
 public interface ProductService {
     List<Product> requestList();
 
-    Product regist(List<MultipartFile> images,
-            RegistRequestform requsetForm);
-
-    public boolean writeImages(List<MultipartFile> images, Product product);
+    Product regist(RegistRequestform requsetForm);
 
     ProductResponseForm requestProduct(Long productId);
 }
