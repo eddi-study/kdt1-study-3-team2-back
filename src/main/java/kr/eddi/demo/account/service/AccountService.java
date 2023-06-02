@@ -14,4 +14,6 @@ public interface AccountService {
     Boolean checkEmail(String email);
 
     List<Account> list();
+
+    void delete(String email);
 }
