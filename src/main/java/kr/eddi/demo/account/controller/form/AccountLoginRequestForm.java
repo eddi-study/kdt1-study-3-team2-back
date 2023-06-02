@@ -1,11 +1,10 @@
 package kr.eddi.demo.account.controller.form;
 
 import kr.eddi.demo.account.entity.Account;
-import lombok.RequiredArgsConstructor;
 
 
-public class AccoutLoginRequestForm {
-    public AccoutLoginRequestForm(String email, String password) {
+public class AccountLoginRequestForm {
+    public AccountLoginRequestForm(String email, String password) {
         this.email = email;
         this.password = password;
     }
