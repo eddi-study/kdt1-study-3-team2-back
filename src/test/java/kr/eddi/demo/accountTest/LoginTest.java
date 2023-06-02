@@ -1,7 +1,6 @@
 package kr.eddi.demo.accountTest;
 
-import kr.eddi.demo.account.controller.form.AccountRegistRequestForm;
-import kr.eddi.demo.account.controller.form.AccoutLoginRequestForm;
+import kr.eddi.demo.account.controller.form.AccountLoginRequestForm;
 import kr.eddi.demo.account.entity.Account;
 import kr.eddi.demo.account.service.AccountService;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +20,7 @@ public class LoginTest {
     void member_try_login() {
         final String EMAIL = "test@test.com";
         final String PASSWORD = "password1";
-        AccoutLoginRequestForm requestForm = new AccoutLoginRequestForm(EMAIL, PASSWORD);
+        AccountLoginRequestForm requestForm = new AccountLoginRequestForm(EMAIL, PASSWORD);
         Account account = accountService.login(requestForm);
 
         assertEquals(EMAIL, account.getEmail());
