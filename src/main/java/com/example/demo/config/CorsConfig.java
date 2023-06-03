@@ -1,4 +1,4 @@
-package kr.eddi.demo.config;
+package com.example.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -10,9 +10,8 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://127.0.0.1:8080")    // vue는 허용하겠다는 소리
+                .allowedOrigins("http://127.0.0.1:8080")
                 .allowedOrigins("http://localhost:8080")
-                .allowedOrigins("http://43.202.26.168")
                 .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 }
