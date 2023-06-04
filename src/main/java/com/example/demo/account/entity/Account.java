@@ -22,11 +22,9 @@ public class Account {
     private Long id;
     private String email;
     private String password;
-    private String userToken;
 
-    public Account(String email, String password, String userToken) {
+    public Account(String email, String password) {
         this.email = email;
         this.password = password;
-        this.userToken = userToken;
     }
 }

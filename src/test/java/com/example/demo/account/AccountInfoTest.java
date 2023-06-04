@@ -26,8 +26,6 @@ public class AccountInfoTest {
     @Test
     @DisplayName("로그인 된 회원 정보를 확인합니다.")
     void accountInfo(){
-//        Account account = new Account("asdf","1111","aad7dfaa-3434-468b-89f6-169e2609253d");
-//        accountRepository.save(account);
 
         final String userToken = "aad7dfaa-3434-468b-89f6-169e2609253d";
 
@@ -38,7 +36,6 @@ public class AccountInfoTest {
         assertNotNull(checkAccountInfo.getId());
         assertNotNull(checkAccountInfo.getEmail());
         assertNotNull(checkAccountInfo.getPassword());
-        assertNotNull(checkAccountInfo.getUserToken());
 
     }
 
