@@ -7,6 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
-    Optional<Account> findByUserToken(UUID userToken);
+    Optional<Account> findByUserToken(String userToken);
 
 }

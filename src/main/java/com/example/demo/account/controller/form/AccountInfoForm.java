@@ -9,5 +9,5 @@ import java.util.UUID;
 @Getter
 @RequiredArgsConstructor
 public class AccountInfoForm {
-    final private UUID userToken;
+    final private String userToken;
 }

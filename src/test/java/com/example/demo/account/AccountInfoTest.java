@@ -29,7 +29,7 @@ public class AccountInfoTest {
 //        Account account = new Account("asdf","1111","aad7dfaa-3434-468b-89f6-169e2609253d");
 //        accountRepository.save(account);
 
-        final UUID userToken = UUID.fromString("aad7dfaa-3434-468b-89f6-169e2609253d");
+        final String userToken = "aad7dfaa-3434-468b-89f6-169e2609253d";
 
         AccountInfoForm accountInfoForm = new AccountInfoForm(userToken);
         Account checkAccountInfo = accountService.accountInfo(accountInfoForm);
@@ -39,8 +39,6 @@ public class AccountInfoTest {
         assertNotNull(checkAccountInfo.getEmail());
         assertNotNull(checkAccountInfo.getPassword());
         assertNotNull(checkAccountInfo.getUserToken());
-
-
 
     }
 

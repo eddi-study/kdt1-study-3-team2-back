@@ -22,17 +22,11 @@ public class Account {
     private Long id;
     private String email;
     private String password;
-    private UUID userToken;
+    private String userToken;
 
-    public Account(String email, String password, UUID userToken) {
+    public Account(String email, String password, String userToken) {
         this.email = email;
         this.password = password;
         this.userToken = userToken;
-    }
-
-    public Account(String email, String password, String uuid) {
-        this.email = email;
-        this.password = password;
-        this.userToken = UUID.fromString(uuid);
     }
 }
