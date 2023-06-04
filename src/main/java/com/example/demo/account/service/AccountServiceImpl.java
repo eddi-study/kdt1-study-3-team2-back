@@ -1,6 +1,7 @@
 package com.example.demo.account.service;
 
 import com.example.demo.account.controller.form.AccountInfoForm;
+import com.example.demo.account.controller.form.AccountRequestFrom;
 import com.example.demo.account.entity.Account;
 import com.example.demo.account.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,16 @@ public class AccountServiceImpl implements AccountService{
         Account existAccount = maybeAccount.get();
 
         return existAccount;
+    }
+
+    // 회원 가입
+    @Override
+    public Account register(AccountRequestFrom requestFrom) {
+        final Optional<Account> maybeAccount = accountRepository.findByEmail(requestFrom.getEmail());
+
+        if (maybeAccount.isPresent()) {
+            return null;
+        }
+        return accountRepository.save(requestFrom.toAccount());
     }
 }

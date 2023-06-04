@@ -14,7 +14,6 @@ import java.util.UUID;
 @Getter
 @ToString
 @NoArgsConstructor
-
 public class Account {
 
     @Id
