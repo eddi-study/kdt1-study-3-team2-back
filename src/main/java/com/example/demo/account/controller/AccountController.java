@@ -22,7 +22,7 @@ public class AccountController {
     final AccountService accountService;
 
     // 로그인 된 계정 정보 확인
-    @PostMapping("{userToken}")
+    @PostMapping("/{userToken}")
     public Account accountInfo(@PathVariable("userToken") AccountInfoForm accountInfoForm){
 
         log.info("AccountInfo ");

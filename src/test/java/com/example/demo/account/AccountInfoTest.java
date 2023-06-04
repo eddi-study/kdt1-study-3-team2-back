@@ -26,16 +26,19 @@ public class AccountInfoTest {
     @Test
     @DisplayName("로그인 된 회원 정보를 확인합니다.")
     void accountInfo(){
+//        Account account = new Account("asdf","1111","aad7dfaa-3434-468b-89f6-169e2609253d");
+//        accountRepository.save(account);
+
         final UUID userToken = UUID.fromString("aad7dfaa-3434-468b-89f6-169e2609253d");
 
         AccountInfoForm accountInfoForm = new AccountInfoForm(userToken);
         Account checkAccountInfo = accountService.accountInfo(accountInfoForm);
 
 
-        assertTrue(checkAccountInfo.getId() != null);
-        assertTrue(checkAccountInfo.getEmail() != null);
-        assertTrue(checkAccountInfo.getPassword() != null);
-        assertTrue(checkAccountInfo.getUserToken() != null);
+        assertNotNull(checkAccountInfo.getId());
+        assertNotNull(checkAccountInfo.getEmail());
+        assertNotNull(checkAccountInfo.getPassword());
+        assertNotNull(checkAccountInfo.getUserToken());
 
 
 

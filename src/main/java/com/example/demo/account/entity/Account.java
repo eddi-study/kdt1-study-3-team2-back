@@ -14,6 +14,7 @@ import java.util.UUID;
 @Getter
 @ToString
 @NoArgsConstructor
+
 public class Account {
 
     @Id
@@ -23,4 +24,15 @@ public class Account {
     private String password;
     private UUID userToken;
 
+    public Account(String email, String password, UUID userToken) {
+        this.email = email;
+        this.password = password;
+        this.userToken = userToken;
+    }
+
+    public Account(String email, String password, String uuid) {
+        this.email = email;
+        this.password = password;
+        this.userToken = UUID.fromString(uuid);
+    }
 }
