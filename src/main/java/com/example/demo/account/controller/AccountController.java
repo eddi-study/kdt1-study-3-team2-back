@@ -1,15 +1,13 @@
 package com.example.demo.account.controller;
 
 import com.example.demo.account.controller.form.AccountInfoForm;
+import com.example.demo.account.controller.form.AccountLoginForm;
 import com.example.demo.account.entity.Account;
 import com.example.demo.account.service.AccountService;
 import com.example.demo.account.service.AccountServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -26,11 +24,19 @@ public class AccountController {
     public Account accountInfo(@PathVariable("userToken") AccountInfoForm accountInfoForm){
 
         log.info("AccountInfo ");
-        Account callAccountList = accountService.accountInfo(accountInfoForm);
+        Account callAccount = accountService.accountInfo(accountInfoForm);
+        log.info("AccountInfo : " + callAccount);
 
-        log.info("AccountInfo : " + callAccountList);
-
-        return callAccountList;
+        return callAccount;
     }
 
+    // 로그인 기능
+    @PostMapping("/AccountLogin")
+    public void accountLogin(@RequestBody AccountLoginForm accountLoginForm){
+
+        log.info(("AccountLogin "));
+        Account callLogin = accountService.accountLogin(accountLoginForm);
+        log.info("AccountLogin : " + callLogin);
+
+    }
 }

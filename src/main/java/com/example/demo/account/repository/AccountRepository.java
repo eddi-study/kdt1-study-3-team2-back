@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface AccountRepository extends JpaRepository<Account, Long> {
     Optional<Account> findByUserToken(String userToken);
 
+    Optional<Account> findByEmail(String email);
 }

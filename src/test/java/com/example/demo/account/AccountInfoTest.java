@@ -20,8 +20,6 @@ public class AccountInfoTest {
 
     @Autowired
     AccountService accountService;
-    @Autowired
-    AccountRepository accountRepository;
 
     @Test
     @DisplayName("로그인 된 회원 정보를 확인합니다.")

@@ -6,9 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
-
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -22,6 +21,9 @@ public class Account {
     private Long id;
     private String email;
     private String password;
+    @Setter
+    private String userToken;
+
 
     public Account(String email, String password) {
         this.email = email;
